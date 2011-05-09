@@ -6,4 +6,6 @@ _  /___  ___ |      _  /  / / /  __/ /_ _  /   / /_/ /
 
 A simple Python wrapper for the L.A. Metro's API.
 
+Right now, Metro only provides busses, and the methods found "here":http://developer.metro.net/introduction/realtime-api-overview/realtime-api-returning-json/.
+
 This code is in the early stages of development. Buyer beware.
