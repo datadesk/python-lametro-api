@@ -1,6 +1,0 @@
-Why don't some stops have ids?
-How do you get the lat/lng for stop when it's retrieve directly, not from a route?
-What does 'is_departing' mean about predictions?
-How do "end of the line" stops work?
-What does "predictable" mean about vehicles?
-Why don't some routes have ids when you pull them via a stop?
