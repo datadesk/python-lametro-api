@@ -1,0 +1,134 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Bus Data &mdash; python-lametro-api v0.1 documentation</title>
+    <link rel="stylesheet" href="_static/latimes.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="python-lametro-api v0.1 documentation" href="index.html" /> 
+  </head>
+  <body>              
+<a href="http://www.github.com/datadesk/python-lametro-api/">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" src="_static/forkme.png" alt="Fork me on GitHub">
+</a>
+<div class="banner">
+    <h1><a href="index.html"><img src="_static/banner.png"></a></h1>
+    <h2>Version 0.1 :: <a href="http://github.com/datadesk">http://github.com/datadesk</a></h2>
+</div>
+<div class="banner-underline"></div> 
+  
+    
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="bus-data">
+<h1>Bus Data<a class="headerlink" href="#bus-data" title="Permalink to this headline">¶</a></h1>
+<p>Methods for retrieving data about busses, stops and routes in the L.A. Metro system.</p>
+<hr><div class="section" id="stops">
+<h2>Stops<a class="headerlink" href="#stops" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="client.documents.get">
+<tt class="descclassname">client.documents.</tt><tt class="descname">get</tt><big>(</big><em>id</em><big>)</big><a class="headerlink" href="#client.documents.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the stop with the provided Metro identifer.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">la_metro</span> <span class="kn">import</span> <span class="n">LAMetro</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">LAMetro</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">bus</span><span class="o">.</span><span class="n">stops</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">6033</span><span class="p">)</span>
+<span class="go">&lt;BusStop: Santa Monica / Vermont&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stop_obj.messages">
+<tt class="descclassname">stop_obj.</tt><tt class="descname">messages</tt><a class="headerlink" href="#stop_obj.messages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an messages Metro has left for users of this bus stop. This can contain information about service problems and delays.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stop_obj.predictions">
+<tt class="descclassname">stop_obj.</tt><tt class="descname">predictions</tt><a class="headerlink" href="#stop_obj.predictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of predictions that guess when busses will next arrive at this stop.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="stop_obj.routes">
+<tt class="descclassname">stop_obj.</tt><tt class="descname">routes</tt><a class="headerlink" href="#stop_obj.routes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the routes that connect with this bus route.</p>
+</dd></dl>
+
+<hr></div>
+<div class="section" id="routes">
+<h2>Routes<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h2>
+<dl class="attribute">
+<dt id="route_obj.runs">
+<tt class="descclassname">route_obj.</tt><tt class="descname">runs</tt><a class="headerlink" href="#route_obj.runs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of the runs on this bus route.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Bus Data</a><ul>
+<li><a class="reference internal" href="#stops">Stops</a></li>
+<li><a class="reference internal" href="#routes">Routes</a></li>
+</ul>
+</li>
+</ul>
+
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/busses.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    <div style="height:20px; clear:both;"></div>
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+        <div class="smalllogo"><a href="http://www.latimes.com"><img src="_static/logo.png" alt="latimes.com"></a></div>
+        <div class="credits">
+            &copy; Copyright 2011, Ben Welsh.
+          Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+        </div>     
+    </div>
+  </body>
+</html>

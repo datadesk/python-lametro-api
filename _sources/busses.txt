@@ -1,0 +1,46 @@
+========
+Bus Data
+========
+
+Methods for retrieving data about busses, stops and routes in the L.A. Metro system.
+
+.. raw:: html
+
+   <hr>
+
+Stops
+-----
+
+.. function:: client.documents.get(id)
+
+   Return the stop with the provided Metro identifer. ::
+
+        >>> from la_metro import LAMetro
+        >>> client = LAMetro()
+        >>> client.bus.stops.get(6033)
+        <BusStop: Santa Monica / Vermont>
+
+.. attribute:: stop_obj.messages
+
+   Returns an messages Metro has left for users of this bus stop. This can contain information about service problems and delays.
+
+.. attribute:: stop_obj.predictions
+
+   Returns a list of predictions that guess when busses will next arrive at this stop.
+
+.. attribute:: stop_obj.routes
+
+   Returns a list of the routes that connect with this bus route.
+
+.. raw:: html
+
+   <hr>
+
+Routes
+------
+
+.. attribute:: route_obj.runs
+
+   Returns a list of the runs on this bus route.
+
+

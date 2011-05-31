@@ -18,7 +18,7 @@ Documentation
    :maxdepth: 3
 
    gettingstarted
-   busses
+   busdata
    changelog
 
 .. raw:: html

@@ -76,6 +76,4 @@ And here's how to get a single one::
     >>> obj.latitude, obj.longitude
     (34.047089, -118.282776)
 
-.. raw:: html
 
-   <hr>
