@@ -1,21 +1,32 @@
-.. python-lametro-api documentation master file, created by
-   sphinx-quickstart on Mon May 23 21:33:32 2011.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. epigraph::
 
-Welcome to python-lametro-api's documentation!
-==============================================
+    A simple Python wrapper for `L.A. Metro's Realtime API <http://developer.metro.net/introduction/realtime-api-overview/>`_
 
-Contents:
+Features
+========
+
+* Retrieve the current location of Metro busses, as well as bus stops and routes.
+
+.. raw:: html
+
+   <hr>
+
+Documentation
+=============
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-Indices and tables
-==================
+   gettingstarted
+   busses
+   changelog
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-   
+.. raw:: html
 
+   <hr>
+
+Other resources
+===============
+
+* `Source code <https://github.com/datadesk/python-lametro-api>`_  
+* `Realtime API overview <http://developer.metro.net/introduction/realtime-api-overview/>`_
