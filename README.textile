@@ -9,4 +9,4 @@ A simple Python wrapper for the L.A. Metro's API for bus stops, routes and vehic
 Installation:
 <pre><code>pip install python-lametro-api</code></pre>
 
-Documentation: "http://datadesk.github.com/python-lametro-api/gettingstarted.html":http://datadesk.github.com/python-lametro-api/gettingstarted.html
+Documentation: "http://datadesk.github.com/python-lametro-api/":http://datadesk.github.com/python-lametro-api/
