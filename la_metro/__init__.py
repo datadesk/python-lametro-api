@@ -12,12 +12,6 @@ from __future__ import unicode_literals
 import os
 import sys
 import requests
-from datetime import datetime
-from dateutil.parser import parse as dateparser
-try:
-    import json
-except ImportError:
-    import simplejson as json
 
 #
 # 2to3 fixes

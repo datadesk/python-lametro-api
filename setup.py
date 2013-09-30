@@ -16,7 +16,6 @@ setup(name='python-lametro-api',
                    "Topic :: Software Development :: Libraries :: Python Modules"
                    ],
       install_requires=[
-        'python-dateutil==2.1',
         'requests==2.0.0',
       ],
      )
