@@ -36,6 +36,22 @@ Stops
 
     The x coordinate of the stop's location
 
+.. attribute:: stop_obj.y
+
+    Alias to the latitude of the stop's location
+
+.. attribute:: stop_obj.x
+
+    Alias to the longitude of the stop's location
+
+.. attribute:: stop_obj.wkt
+
+    The stop's location in Well-Known Text format
+
+.. attribute:: stop_obj.geojson
+
+    The stop's location in GeoJSON format
+
 .. attribute:: stop_obj.messages
 
    Returns an messages Metro has left for users of this bus stop. This can contain information about service problems and delays.
@@ -140,6 +156,22 @@ Vehicles
 .. attribute:: vehicle_obj.longitude
 
     The x coordinate of the vehicle's location
+
+.. attribute:: vehicle_obj.y
+
+    Alias to the latitude of the vehicle's location
+
+.. attribute:: vehicle_obj.x
+
+    Alias to the longitude of the vehicle's location
+
+.. attribute:: vehicle_obj.wkt
+
+    The vehicle's location in Well-Known Text format
+
+.. attribute:: vehicle_obj.geojson
+
+    The vehicle's location in GeoJSON format
 
 .. attribute:: vehicle_obj.heading
 

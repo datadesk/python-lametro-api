@@ -75,5 +75,11 @@ And here's how to get a single one::
     >>> obj = client.bus.vehicles.get(7433)
     >>> obj.latitude, obj.longitude
     (34.047089, -118.282776)
-
+    # Also available with some other mappable attributes
+    >>> obj.y, obj.x
+    (34.047089, -118.282776)
+    >>> obj.wkt
+    POINT(-118.282776 34.047089)
+    >>> obj.geojson
+    {"type": "Point", "coordinates": [-118.282776, 34.047089]}
 
