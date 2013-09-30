@@ -168,7 +168,7 @@ class BusRoute(BaseAPIObject):
         self._connection = connection
     
     def __unicode__(self):
-        return unicode(self.id)
+        return u'%s' % self.id
     
     def get_runs(self):
         """
@@ -294,7 +294,7 @@ class BusMessage(BaseAPIObject):
         self.text = text
     
     def __unicode__(self):
-        return unicode(self.text)
+        return u'%s' % self.text
 
 
 class BusPrediction(BaseAPIObject):
@@ -311,7 +311,7 @@ class BusPrediction(BaseAPIObject):
         self._connection = connection
     
     def __unicode__(self):
-        return unicode('%s (%s)' % (self.stop.name, self.route_id))
+        return u'%s (%s)' % (self.stop.name, self.route_id)
     
     def get_route(self):
         """
@@ -353,7 +353,7 @@ class BusRun(BaseAPIObject):
         self._connection = connection
     
     def __unicode__(self):
-        return unicode('%s (%s)' % (self.name, self.route.id))
+        return u'%s (%s)' % (self.name, self.route.id)
 
 
 class BusVehicle(BaseAPIObject):
@@ -373,7 +373,7 @@ class BusVehicle(BaseAPIObject):
             self.route = route
 
     def __unicode__(self):
-        return unicode(self.id)
+        return u'%s' % self.id
     
     def set_route(self, route):
         if not type(route) == BusRoute:
