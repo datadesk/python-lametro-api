@@ -118,9 +118,9 @@ class BusVehicleTests(BaseTest):
         """
         Test a request that returns a particular bus vehicle.
         """
-        obj = self.client.bus.vehicles.get(6319)
+        obj = self.client.bus.vehicles.get(7869)
         self.assertEqual(type(obj), BusVehicle)
-        self.assertEqual(obj.id, '6319')
+        self.assertEqual(obj.id, '7869')
         self.assertEqual(type(obj.run), BusRun)
 
 
