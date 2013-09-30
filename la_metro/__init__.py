@@ -3,6 +3,7 @@ Python library for interacting with the L.A. Metro API.
 
 Further documentation:
 
+    http://datadesk.github.io/python-lametro-api/
     http://developer.metro.net/introduction/realtime-api-overview/
 
 """
