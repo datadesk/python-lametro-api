@@ -4,6 +4,7 @@
 Tests out the LA Metro API.
 """
 import os
+import random
 import unittest
 from la_metro import LAMetro
 from la_metro import BusRoute, BusStop, BusMessage, BusPrediction, BusRun, BusVehicle
@@ -118,9 +119,11 @@ class BusVehicleTests(BaseTest):
         """
         Test a request that returns a particular bus vehicle.
         """
-        obj = self.client.bus.vehicles.get(7869)
+        obj_list = self.client.bus.vehicles.all()
+        num = random.choice(obj_list).id
+        obj = self.client.bus.vehicles.get(num)
         self.assertEqual(type(obj), BusVehicle)
-        self.assertEqual(obj.id, '7869')
+        self.assertEqual(obj.id, num)
         self.assertEqual(type(obj.run), BusRun)
 
 
