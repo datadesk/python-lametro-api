@@ -2,7 +2,7 @@
 Bus data
 ========
 
-Methods for retrieving data about busses, stops and routes in the L.A. Metro system.
+Methods for retrieving data about buses, stops and routes in the L.A. Metro system.
 
 .. raw:: html
 

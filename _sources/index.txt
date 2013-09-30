@@ -5,8 +5,8 @@
 Features
 ========
 
-* Retrieve the current location of Metro busses.
-* Retrieve the location of Metro bus stops, and predictions for when busses will next arrive.
+* Retrieve the current location of Metro buses.
+* Retrieve the location of Metro bus stops, and predictions for when buses will next arrive.
 * Retrieve all Metro bus routes and the stops they connect with.
 
 .. raw:: html
@@ -19,7 +19,7 @@ Documentation
 .. toctree::
    :maxdepth: 3
 
-   gettingstarted
+   gettingstarted 
    busdata
    changelog
 

@@ -31,7 +31,7 @@ Before you can interact with Metro's data, you first must import the library and
 
    <hr>
 
-Retrieve a bus stop and get predictions for incoming busses
+Retrieve a bus stop and get predictions for incoming buses
 -------------------------------------------------------------
 
     >>> obj = client.bus.stops.get(6033)
