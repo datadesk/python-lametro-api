@@ -8,11 +8,12 @@ setup(name='python-lametro-api',
       url='http://datadesk.github.com/python-lametro-api/',
       packages=find_packages(),
       license='MIT',
-      keywords='losangeles metro transit busses transportation',
+      keywords='losangeles metro transit buses transportation',
       classifiers=["Intended Audience :: Developers",
                    "License :: OSI Approved :: MIT License",
                    "Operating System :: OS Independent",
                    "Programming Language :: Python",
                    "Topic :: Software Development :: Libraries :: Python Modules"
                    ],
+      install_requires=['python-dateutil==2.1'],
      )
