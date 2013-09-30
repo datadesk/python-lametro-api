@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='python-lametro-api',
-      version='0.1.3',
+      version='0.1.4',
       description='A simple Python wrapper for the L.A. Metro\'s API.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',
