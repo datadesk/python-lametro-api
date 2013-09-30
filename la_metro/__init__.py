@@ -29,7 +29,7 @@ class UnicodeMixin(object):
         __str__ = lambda x: unicode(x).encode('utf-8')
 
 #
-# API connection clients
+# API connection mixins
 #
 
 class BaseLAMetroClient(object):
@@ -45,6 +45,33 @@ class BaseLAMetroClient(object):
         url = self.BASE_URI + resource
         response = requests.get(url)
         return response.json()
+
+
+class GeoObject(object):
+    """
+    Common attributes of an API object that contains geospatial data
+    """
+    @property
+    def x(self):
+        return self.longitude
+
+    @property
+    def y(self):
+        return self.latitude
+
+    @property
+    def wkt(self):
+        if not self.longitude and self.latitude:
+            return None
+        return 'POINT(%s %s)' % (self.longitude, self.latitude)
+
+    @property
+    def geojson(self):
+        if not self.longitude and self.latitude:
+            return None
+        return '{"type": "Point", "coordinates": [%s, %s]}' % (
+            self.longitude, self.latitude
+        )
 
 #
 # The public API client
@@ -222,7 +249,7 @@ class BusRoute(BaseAPIObject):
     vehicles = property(get_vehicles)
 
 
-class BusStop(BaseAPIObject):
+class BusStop(BaseAPIObject, GeoObject):
     
     def __init__(self, id, name, latitude=None, longitude=None, connection=None):
         self.id = id
@@ -350,7 +377,7 @@ class BusRun(BaseAPIObject):
         return u'%s (%s)' % (self.name, self.route.id)
 
 
-class BusVehicle(BaseAPIObject):
+class BusVehicle(BaseAPIObject, GeoObject):
     
     def __init__(self, id, is_predictable, seconds_since_report, latitude,
         longitude, heading, route_id, run_id, connection, route=None):
@@ -401,5 +428,3 @@ class BusVehicle(BaseAPIObject):
             self.__dict__['run'] = None
             return None
     run = property(get_run)
-
-

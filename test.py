@@ -43,8 +43,13 @@ class BusRouteTests(BaseTest):
         Test a lazy-loaded call to the stops.
         """
         obj = self.client.bus.routes.get(704)
-        self.assertEqual(type(obj.stops), type([]))
-        [self.assertEqual(type(i), BusStop) for i in obj.stops]
+        stops = obj.stops
+        self.assertEqual(type(stops), type([]))
+        [self.assertEqual(type(i), BusStop) for i in stops]
+        self.assertEqual(stops[0].longitude, stops[0].x)
+        self.assertEqual(stops[0].latitude, stops[0].y)
+        stops[0].wkt
+        stops[0].geojson
     
     def test_get_runs(self):
         """
@@ -60,11 +65,16 @@ class BusRouteTests(BaseTest):
         Test a request for vehicles on this route.
         """
         obj = self.client.bus.routes.get(704)
-        self.assertEqual(type(obj.vehicles), type([]))
-        [self.assertEqual(type(i), BusVehicle) for i in obj.vehicles]
-        [self.assertEqual(type(i.route), BusRoute) for i in obj.vehicles]
-        [self.assertEqual(type(i.run), BusRun) for i in obj.vehicles if i.is_predictable]
-        [self.assertEqual(type(i.run), type(None)) for i in obj.vehicles if not i.is_predictable]
+        vehicles = obj.vehicles
+        self.assertEqual(type(vehicles), type([]))
+        self.assertEqual(vehicles[0].longitude, vehicles[0].x)
+        self.assertEqual(vehicles[0].latitude, vehicles[0].y)
+        vehicles[0].wkt
+        vehicles[0].geojson
+        [self.assertEqual(type(i), BusVehicle) for i in vehicles]
+        [self.assertEqual(type(i.route), BusRoute) for i in vehicles]
+        [self.assertEqual(type(i.run), BusRun) for i in vehicles if i.is_predictable]
+        [self.assertEqual(type(i.run), type(None)) for i in vehicles if not i.is_predictable]
 
 
 class BusStopTests(BaseTest):
@@ -91,18 +101,20 @@ class BusStopTests(BaseTest):
         Test a call for a prediction.
         """
         obj = self.client.bus.stops.get(6033)
-        self.assertEqual(type(obj.predictions), type([]))
-        [self.assertEqual(type(i), BusPrediction) for i in obj.predictions]
-        [self.assertEqual(type(i.route), BusRoute) for i in obj.predictions]
-        [self.assertEqual(type(i.run), BusRun) for i in obj.predictions]
+        predictions = obj.predictions
+        self.assertEqual(type(predictions), type([]))
+        [self.assertEqual(type(i), BusPrediction) for i in predictions]
+        [self.assertEqual(type(i.route), BusRoute) for i in predictions]
+        [self.assertEqual(type(i.run), BusRun) for i in predictions]
     
     def test_get_routes(self):
         """
         Test a call for routes that visit this stop.
         """
         obj = self.client.bus.stops.get(6033)
-        self.assertEqual(type(obj.routes), type([]))
-        [self.assertEqual(type(i), BusRoute) for i in obj.routes]
+        routes = obj.routes
+        self.assertEqual(type(routes), type([]))
+        [self.assertEqual(type(i), BusRoute) for i in routes]
 
 
 class BusVehicleTests(BaseTest):
