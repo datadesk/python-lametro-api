@@ -6,6 +6,8 @@ _  /___  ___ |      _  /  / / /  __/ /_ _  /   / /_/ /
 
 A simple Python wrapper for the L.A. Metro's API for bus stops, routes and vehicles.
 
+!https://travis-ci.org/datadesk/python-lametro-api.png?branch=master!:https://travis-ci.org/datadesk/python-lametro-api
+
 Installation:
 <pre><code>pip install python-lametro-api</code></pre>
 
