@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='python-lametro-api',
-      version='0.1.1',
+      version='0.1.2',
       description='A simple Python wrapper for the L.A. Metro\'s API.',
       author='Ben Welsh',
       author_email='ben.welsh@latimes.com',
@@ -15,5 +15,8 @@ setup(name='python-lametro-api',
                    "Programming Language :: Python",
                    "Topic :: Software Development :: Libraries :: Python Modules"
                    ],
-      install_requires=['python-dateutil==2.1'],
+      install_requires=[
+        'python-dateutil==2.1',
+        'requests==2.0.0',
+      ],
      )

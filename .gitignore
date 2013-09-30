@@ -1,3 +1,5 @@
+.tox/
+scratch.py
 dist/*
 *egg-info*
 *.pyc
