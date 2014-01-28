@@ -8,10 +8,9 @@ Further documentation:
 
 """
 from __future__ import unicode_literals
-
-import os
 import sys
 import requests
+
 
 #
 # 2to3 fixes
@@ -20,13 +19,14 @@ import requests
 class UnicodeMixin(object):
     """
     Make our unicode methods play nice.
-    
+
     Docs: http://lucumr.pocoo.org/2011/1/22/forwards-compatible-python/
     """
     if sys.version_info > (3, 0):
         __str__ = lambda x: x.__unicode__()
     else:
         __str__ = lambda x: unicode(x).encode('utf-8')
+
 
 #
 # API connection mixins
@@ -37,7 +37,7 @@ class BaseLAMetroClient(object):
     Patterns common to all of the different API methods.
     """
     BASE_URI = 'http://api.metro.net/agencies/lametro/'
-    
+
     def _make_request(self, resource):
         """
         Configure a HTTP request, fire it off and return the response.
@@ -73,6 +73,7 @@ class GeoObject(object):
             self.longitude, self.latitude
         )
 
+
 #
 # The public API client
 #
@@ -83,6 +84,7 @@ class LAMetro(BaseLAMetroClient):
     """
     def __init__(self):
         self.bus = BusClient()
+
 
 #
 # Bus methods
@@ -107,8 +109,11 @@ class BusRouteClient(BaseLAMetroClient):
         Retrieve all routes in the system.
         """
         json = self._make_request('routes/')
-        return [BusRoute(i['id'], i['display_name'], self) for i in json.get("items")]
-    
+        return [
+            BusRoute(i['id'], i['display_name'], self)
+            for i in json.get("items")
+        ]
+
     def get(self, id):
         json = self._make_request('routes/%s/' % id)
         return BusRoute(json['id'], json['display_name'], self)
@@ -144,7 +149,7 @@ class BusVehicleClient(BaseLAMetroClient):
             self,
             None,
         ) for j in json.get("items")]
-    
+
     def get(self, id):
         """
         Retrieve a particular vehicle
@@ -163,6 +168,7 @@ class BusVehicleClient(BaseLAMetroClient):
             None,
         )
 
+
 #
 # API objects
 #
@@ -173,24 +179,24 @@ class BaseAPIObject(UnicodeMixin):
     """
     def __init__(self, d):
         self.__dict__ = d
-    
+
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.__str__())
-    
+
     def __unicode__(self):
         return u'%s' % self.name
 
 
 class BusRoute(BaseAPIObject):
-    
+
     def __init__(self, id, name, connection):
         self.id = id
         self.name = name
         self._connection = connection
-    
+
     def __unicode__(self):
         return u'%s' % self.id
-    
+
     def get_runs(self):
         """
         Fetch the runs on this route if they have not already been pulled.
@@ -209,15 +215,18 @@ class BusRoute(BaseAPIObject):
             self.__dict__['runs'] = obj_list
             return obj_list
     runs = property(get_runs)
-    
+
     def get_stops(self):
         """
-        Fetch the stops, in proper sequence, if they have not already been pulled.
+        Fetch the stops, in proper sequence, if they
+        have not already been pulled.
         """
         try:
             return self.__dict__['stops']
         except KeyError:
-            json = self._connection._make_request('routes/%s/sequence/' % self.id)
+            json = self._connection._make_request(
+                'routes/%s/sequence/' % self.id
+            )
             obj_list = [BusStop(
                 j.get("id", ""),
                 j['display_name'],
@@ -228,7 +237,7 @@ class BusRoute(BaseAPIObject):
             self.__dict__['stops'] = obj_list
             return obj_list
     stops = property(get_stops)
-    
+
     def get_vehicles(self):
         """
         Fetch the latest position of the vehicles on this route.
@@ -250,32 +259,38 @@ class BusRoute(BaseAPIObject):
 
 
 class BusStop(BaseAPIObject, GeoObject):
-    
-    def __init__(self, id, name, latitude=None, longitude=None, connection=None):
+
+    def __init__(
+        self, id, name, latitude=None, longitude=None, connection=None
+    ):
         self.id = id
         self.name = name
         self.latitude = latitude
         self.longitude = longitude
         self._connection = connection
-    
+
     def get_messages(self):
         """
         Fetch any messages for this stop.
         """
         if self.id:
-            json = self._connection._make_request('stops/%s/messages/' % self.id)
+            json = self._connection._make_request(
+                'stops/%s/messages/' % self.id
+            )
             obj_list = [BusMessage(j) for j in json.get("items")]
         else:
             obj_list = []
         return obj_list
     messages = property(get_messages)
-    
+
     def get_predictions(self):
         """
         Fetch the predictions for this stop.
         """
         if self.id:
-            json = self._connection._make_request('stops/%s/predictions/' % self.id)
+            json = self._connection._make_request(
+                'stops/%s/predictions/' % self.id
+            )
             obj_list = [BusPrediction(
                 self,
                 j['route_id'],
@@ -290,10 +305,11 @@ class BusStop(BaseAPIObject, GeoObject):
             obj_list = []
         return obj_list
     predictions = property(get_predictions)
-    
+
     def get_routes(self):
         """
-        Fetch the routes that visit this stop, if they havn't already been pulled.
+        Fetch the routes that visit this stop,
+        if they havn't already been pulled.
         """
         try:
             return self.__dict__['routes']
@@ -303,25 +319,28 @@ class BusStop(BaseAPIObject, GeoObject):
                 i['id'],
                 i['display_name'],
                 self._connection)
-            for i in json.get("items")]
+                for i in json.get("items")
+            ]
             self.__dict__['routes'] = obj_list
             return obj_list
     routes = property(get_routes)
 
 
 class BusMessage(BaseAPIObject):
-    
+
     def __init__(self, text):
         self.text = text
-    
+
     def __unicode__(self):
         return u'%s' % self.text
 
 
 class BusPrediction(BaseAPIObject):
-    
-    def __init__(self, stop, route_id, run_id, block_id, minutes, 
-        seconds, is_departing, connection):
+
+    def __init__(
+        self, stop, route_id, run_id, block_id, minutes,
+        seconds, is_departing, connection
+    ):
         self.stop = stop
         self.route_id = route_id
         self.run_id = run_id
@@ -330,10 +349,10 @@ class BusPrediction(BaseAPIObject):
         self.seconds = seconds
         self.is_departing = is_departing
         self._connection = connection
-    
+
     def __unicode__(self):
         return u'%s (%s)' % (self.stop.name, self.route_id)
-    
+
     def get_route(self):
         """
         Fetch the route, if it hasn't already been pulled.
@@ -346,7 +365,7 @@ class BusPrediction(BaseAPIObject):
             self.__dict__['route'] = obj
             return obj
     route = property(get_route)
-    
+
     def get_run(self):
         """
         Fetch the run, if it hasn't already been pulled.
@@ -365,22 +384,24 @@ class BusPrediction(BaseAPIObject):
 
 
 class BusRun(BaseAPIObject):
-    
+
     def __init__(self, id, name, direction, route, connection):
         self.id = id
         self.name = name
         self.direction = direction
         self.route = route
         self._connection = connection
-    
+
     def __unicode__(self):
         return u'%s (%s)' % (self.name, self.route.id)
 
 
 class BusVehicle(BaseAPIObject, GeoObject):
-    
-    def __init__(self, id, is_predictable, seconds_since_report, latitude,
-        longitude, heading, route_id, run_id, connection, route=None):
+
+    def __init__(
+        self, id, is_predictable, seconds_since_report, latitude,
+        longitude, heading, route_id, run_id, connection, route=None
+    ):
         self.id = id
         self.is_predictable = is_predictable
         self.seconds_since_report = seconds_since_report
@@ -395,12 +416,12 @@ class BusVehicle(BaseAPIObject, GeoObject):
 
     def __unicode__(self):
         return u'%s' % self.id
-    
+
     def set_route(self, route):
         if not type(route) == BusRoute:
             raise TypeError
         self.__dict__['route'] = route
-    
+
     def get_route(self):
         """
         Fetch the route, if it hasn't already been pulled.
@@ -413,7 +434,7 @@ class BusVehicle(BaseAPIObject, GeoObject):
             self.__dict__['route'] = obj
             return obj
     route = property(get_route, set_route)
-    
+
     def get_run(self):
         """
         Fetch the run, if it hasn't already been pulled.

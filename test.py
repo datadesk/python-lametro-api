@@ -14,13 +14,13 @@ from la_metro import BusRoute, BusStop, BusMessage, BusPrediction, BusRun, BusVe
 #
 
 class BaseTest(unittest.TestCase):
-    
+
     def setUp(self):
         self.client = LAMetro()
 
 
 class BusRouteTests(BaseTest):
-    
+
     def test_all(self):
         """
         Test a request that returns all the routes in the system.
@@ -64,7 +64,7 @@ class BusRouteTests(BaseTest):
         """
         Test a request for vehicles on this route.
         """
-        obj = self.client.bus.routes.get(704)
+        obj = self.client.bus.routes.get(002)
         vehicles = obj.vehicles
         self.assertEqual(type(vehicles), type([]))
         self.assertEqual(vehicles[0].longitude, vehicles[0].x)
