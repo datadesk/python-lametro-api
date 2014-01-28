@@ -394,7 +394,7 @@ class BusRun(BaseAPIObject):
         self._connection = connection
 
     def __unicode__(self):
-        return u'%s (%s)' % (self.name, self.route.id)
+        return six.text_type('%s (%s)' % (self.name, self.route.id))
 
 
 class BusVehicle(BaseAPIObject, GeoObject):
@@ -416,7 +416,7 @@ class BusVehicle(BaseAPIObject, GeoObject):
             self.route = route
 
     def __unicode__(self):
-        return u'%s' % self.id
+        return six.text_type('%s' % self.id)
 
     def set_route(self, route):
         if not type(route) == BusRoute:
