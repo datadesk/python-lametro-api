@@ -20,5 +20,5 @@ Getting started
 ---------------
 
 ```bash
-pip install python-lametro-api
+$ pip install python-lametro-api
 ```
