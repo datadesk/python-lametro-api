@@ -64,7 +64,7 @@ class BusRouteTests(BaseTest):
         """
         Test a request for vehicles on this route.
         """
-        obj = self.client.bus.routes.get(105)
+        obj = self.client.bus.routes.get(38)
         vehicles = obj.vehicles
         self.assertEqual(type(vehicles), type([]))
         self.assertEqual(vehicles[0].longitude, vehicles[0].x)
