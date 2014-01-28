@@ -12,4 +12,6 @@ install:
 script: 
  - pep8 la_metro
  - pyflakes la_metro
- - python test.py
+ - coverage run test.py
+after_success:
+  - coveralls
