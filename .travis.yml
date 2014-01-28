@@ -8,7 +8,7 @@ python:
  - "3.3"
 # Tell it the things it will need to install when it boots
 install: 
- - python setup.py install
+ - pip install -r requirements.txt
 script: 
  - pep8 la_metro
  - pyflakes la_metro
