@@ -17,5 +17,6 @@ setup(name='python-lametro-api',
                    ],
       install_requires=[
         'requests==2.0.0',
+        'six==1.4.1',
       ],
      )

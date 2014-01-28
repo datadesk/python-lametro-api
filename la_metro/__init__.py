@@ -9,6 +9,7 @@ Further documentation:
 """
 from __future__ import unicode_literals
 import sys
+import six
 import requests
 
 
@@ -184,7 +185,7 @@ class BaseAPIObject(UnicodeMixin):
         return '<%s: %s>' % (self.__class__.__name__, self.__str__())
 
     def __unicode__(self):
-        return u'%s' % self.name
+        return six.text_type('%s' % self.name)
 
 
 class BusRoute(BaseAPIObject):
@@ -195,7 +196,7 @@ class BusRoute(BaseAPIObject):
         self._connection = connection
 
     def __unicode__(self):
-        return u'%s' % self.id
+        return six.text_type('%s' % self.id)
 
     def get_runs(self):
         """
@@ -332,7 +333,7 @@ class BusMessage(BaseAPIObject):
         self.text = text
 
     def __unicode__(self):
-        return u'%s' % self.text
+        return six.text_type('%s' % self.text)
 
 
 class BusPrediction(BaseAPIObject):
@@ -351,7 +352,7 @@ class BusPrediction(BaseAPIObject):
         self._connection = connection
 
     def __unicode__(self):
-        return u'%s (%s)' % (self.stop.name, self.route_id)
+        return six.text_type('%s (%s)' % (self.stop.name, self.route_id))
 
     def get_route(self):
         """
