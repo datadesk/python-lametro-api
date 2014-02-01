@@ -62,13 +62,13 @@ class GeoObject(object):
 
     @property
     def wkt(self):
-        if not self.longitude and self.latitude:
+        if not self.longitude or not self.latitude:
             return None
         return 'POINT(%s %s)' % (self.longitude, self.latitude)
 
     @property
     def geojson(self):
-        if not self.longitude and self.latitude:
+        if not self.longitude or not self.latitude:
             return None
         return '{"type": "Point", "coordinates": [%s, %s]}' % (
             self.longitude, self.latitude
@@ -178,9 +178,6 @@ class BaseAPIObject(UnicodeMixin):
     """
     An abstract version of the objects returned by the API.
     """
-    def __init__(self, d):
-        self.__dict__ = d
-
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.__str__())
 

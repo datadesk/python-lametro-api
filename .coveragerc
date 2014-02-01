@@ -1,2 +1,9 @@
 [run]
 include = la_metro/*
+
+[report]
+exclude_lines =
+    pragma: no cover
+    class UnicodeMixin
+    if not self.longitude or not self.latitude
+    obj_list = \[\]
