@@ -416,7 +416,7 @@ class BusVehicle(BaseAPIObject, GeoObject):
         return six.text_type('%s' % self.id)
 
     def set_route(self, route):
-        if not type(route) == BusRoute:
+        if not isinstance(route, BusRoute):
             raise TypeError
         self.__dict__['route'] = route
 

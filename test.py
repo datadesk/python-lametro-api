@@ -3,16 +3,12 @@
 """
 Tests out the LA Metro API.
 """
-import os
 import random
 import unittest
 from la_metro import LAMetro
-from la_metro import BusRoute, BusStop, BusMessage, BusPrediction
 from la_metro import BusRun, BusVehicle
+from la_metro import BusRoute, BusStop, BusMessage, BusPrediction
 
-#
-# Tests
-#
 
 class BaseTest(unittest.TestCase):
 
@@ -91,6 +87,7 @@ class BusRouteTests(BaseTest):
         vehicles[0].__repr__()
         vehicles[0].__str__()
         vehicles[0].__unicode__()
+        self.assertRaises(TypeError, vehicles[0].set_route, 'foobar')
 
 
 class BusStopTests(BaseTest):
@@ -117,6 +114,10 @@ class BusStopTests(BaseTest):
         obj = self.client.bus.stops.get(self.random_stop.id)
         self.assertEqual(type(self.stop.messages), type([]))
         [self.assertEqual(type(i), BusMessage) for i in self.stop.messages]
+        bm = BusMessage('foo')
+        bm.__repr__()
+        bm.__str__()
+        bm.__unicode__()
 
     def test_get_predictions(self):
         """
@@ -127,6 +128,9 @@ class BusStopTests(BaseTest):
         [self.assertEqual(type(i), BusPrediction) for i in predictions]
         [self.assertEqual(type(i.route), BusRoute) for i in predictions]
         [self.assertEqual(type(i.run), BusRun) for i in predictions]
+        predictions[0].__repr__()
+        predictions[0].__str__()
+        predictions[0].__unicode__()
 
     def test_get_routes(self):
         """

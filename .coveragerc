@@ -7,3 +7,5 @@ exclude_lines =
     class UnicodeMixin
     if not self.longitude or not self.latitude
     obj_list = \[\]
+    self.__dict__\[\'run\'\] = None
+    return None
