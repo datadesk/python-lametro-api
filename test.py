@@ -66,7 +66,7 @@ class BusRouteTests(BaseTest):
         obj.runs[0].__repr__()
         obj.runs[0].__str__()
         obj.runs[0].__unicode__()
-    
+
     def test_get_vehicles(self):
         """
         Test a request for vehicles on this route.
@@ -111,7 +111,6 @@ class BusStopTests(BaseTest):
         """
         Test a call for messages
         """
-        obj = self.client.bus.stops.get(self.random_stop.id)
         self.assertEqual(type(self.stop.messages), type([]))
         [self.assertEqual(type(i), BusMessage) for i in self.stop.messages]
         bm = BusMessage('foo')
