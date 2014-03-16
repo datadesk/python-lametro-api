@@ -21,8 +21,11 @@ Documentation
    busdata
    changelog
 
-Other resources
-===============
+Contributing
+============
 
-* `Source code <https://github.com/datadesk/python-lametro-api>`_  
-* `Realtime API overview <http://developer.metro.net/introduction/realtime-api-overview/>`_
+* Code repository: `https://github.com/datadesk/python-lametro-api <https://github.com/datadesk/python-lametro-api>`_
+* Issues: `https://github.com/datadesk/python-lametro-api/issues <https://github.com/datadesk/python-lametro-api/issues>`_
+* Packaging: `https://pypi.python.org/pypi/python-lametro-api <https://pypi.python.org/pypi/python-lametro-api>`_
+* Testing: `https://travis-ci.org/datadesk/python-lametro-api <https://travis-ci.org/datadesk/python-lametro-api>`_
+* Coverage: `https://coveralls.io/r/datadesk/python-lametro-api <https://coveralls.io/r/datadesk/python-lametro-api>`_
