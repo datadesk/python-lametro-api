@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: python-lametro-api
+Version: 0.1.4
+Summary: A simple Python wrapper for the L.A. Metro's API.
+Home-page: http://datadesk.github.com/python-lametro-api/
+Author: Ben Welsh
+Author-email: ben.welsh@latimes.com
+License: MIT
+Description: UNKNOWN
+Keywords: losangeles metro transit buses transportation
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

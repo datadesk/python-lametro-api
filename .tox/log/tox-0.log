@@ -1,0 +1,38 @@
+actionid=tox
+msg=packaging
+cmdargs=['/home/ben/Code/datadesk/open/python-lametro-api/bin/python', local('/home/ben/Code/datadesk/open/python-lametro-api/repo/setup.py'), 'sdist', '--formats=zip', '--dist-dir', local('/home/ben/Code/datadesk/open/python-lametro-api/repo/.tox/dist')]
+env=None
+running sdist
+running egg_info
+writing requirements to python_lametro_api.egg-info/requires.txt
+writing python_lametro_api.egg-info/PKG-INFO
+writing top-level names to python_lametro_api.egg-info/top_level.txt
+writing dependency_links to python_lametro_api.egg-info/dependency_links.txt
+reading manifest file 'python_lametro_api.egg-info/SOURCES.txt'
+writing manifest file 'python_lametro_api.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt
+
+running check
+creating python-lametro-api-0.1.4
+creating python-lametro-api-0.1.4/la_metro
+creating python-lametro-api-0.1.4/python_lametro_api.egg-info
+making hard links in python-lametro-api-0.1.4...
+hard linking setup.py -> python-lametro-api-0.1.4
+hard linking la_metro/__init__.py -> python-lametro-api-0.1.4/la_metro
+hard linking python_lametro_api.egg-info/PKG-INFO -> python-lametro-api-0.1.4/python_lametro_api.egg-info
+hard linking python_lametro_api.egg-info/SOURCES.txt -> python-lametro-api-0.1.4/python_lametro_api.egg-info
+hard linking python_lametro_api.egg-info/dependency_links.txt -> python-lametro-api-0.1.4/python_lametro_api.egg-info
+hard linking python_lametro_api.egg-info/requires.txt -> python-lametro-api-0.1.4/python_lametro_api.egg-info
+hard linking python_lametro_api.egg-info/top_level.txt -> python-lametro-api-0.1.4/python_lametro_api.egg-info
+Writing python-lametro-api-0.1.4/setup.cfg
+creating '.tox/dist/python-lametro-api-0.1.4.zip' and adding 'python-lametro-api-0.1.4' to it
+adding 'python-lametro-api-0.1.4/setup.py'
+adding 'python-lametro-api-0.1.4/setup.cfg'
+adding 'python-lametro-api-0.1.4/PKG-INFO'
+adding 'python-lametro-api-0.1.4/python_lametro_api.egg-info/dependency_links.txt'
+adding 'python-lametro-api-0.1.4/python_lametro_api.egg-info/PKG-INFO'
+adding 'python-lametro-api-0.1.4/python_lametro_api.egg-info/top_level.txt'
+adding 'python-lametro-api-0.1.4/python_lametro_api.egg-info/SOURCES.txt'
+adding 'python-lametro-api-0.1.4/python_lametro_api.egg-info/requires.txt'
+adding 'python-lametro-api-0.1.4/la_metro/__init__.py'
+removing 'python-lametro-api-0.1.4' (and everything under it)
