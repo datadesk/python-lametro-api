@@ -2,6 +2,14 @@
 Changelog
 =========
 
+0.2
+---
+
+* Improved test coverage
+* Python 3 fixes
+* Automated coverage testing with coveralls.io
+* PEP8 and PyFlakes compilance and testing
+
 0.1.4
 -----
 
