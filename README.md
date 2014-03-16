@@ -10,7 +10,7 @@ A simple Python wrapper for the L.A. Metro's API for bus stops, routes and vehic
 [![PyPI version](https://badge.fury.io/py/python-lametro-api.png)](http://badge.fury.io/py/python-lametro-api)
 [![Coverage Status](https://coveralls.io/repos/datadesk/python-lametro-api/badge.png?branch=master)](https://coveralls.io/r/datadesk/python-lametro-api?branch=master)
 
-* Documentation: [http://datadesk.github.io/python-lametro-api/](http://datadesk.github.io/python-lametro-api/)
+* Documentation: [http://python-lametro-api.rtfd.org](http://python-lametro-api.rtfd.org)
 * Issues: [https://github.com/datadesk/python-lametro-api/issues](https://github.com/datadesk/python-lametro-api/issues)
 * Packaging: [https://pypi.python.org/pypi/python-lametro-api](https://pypi.python.org/pypi/python-lametro-api)
 * Testing: [https://travis-ci.org/datadesk/python-lametro-api](https://travis-ci.org/datadesk/python-lametro-api)
